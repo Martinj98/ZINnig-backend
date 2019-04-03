@@ -1,0 +1,35 @@
+package Devices.Logopedie.webservices;
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonObjectBuilder;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+@Path("countries")
+public class TestResource {
+
+
+	@GET
+	//@RolesAllowed("user")
+	@Produces("application/json")
+	public String getAllCountries() {
+//		WorldService serviceold = ServiceProvider.getWorldService();
+//		CountryService service = ServiceProvider.getCountryService();
+
+		JsonArrayBuilder jab = Json.createArrayBuilder();
+		String[] countries= {"land1","land2"};
+		
+		for (String c : countries) {
+			JsonObjectBuilder job = Json.createObjectBuilder();
+//			job.add("Code", c.getCode());
+//			job.add("Name", c.getName());
+			job.add("name", c);
+			jab.add(job);
+		}
+
+		JsonArray array = jab.build();
+		return array.toString();
+	}
+}
