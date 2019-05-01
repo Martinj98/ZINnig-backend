@@ -7,31 +7,32 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
-import Devices.Logopedie.model.Logopedist;
-import Devices.Logopedie.services.LogopedistService;
+import Devices.Logopedie.model.Child;
+import Devices.Logopedie.services.ChildService;
 import Devices.Logopedie.services.ServiceProvider;
 
-@Path("logopedist")
-public class TestResource {
+@Path("children")
+public class AllChildrenResource {
 
 
 	@GET
-	//@RolesAllowed("user")
+	//@RolesAllowed('logopedist')
 	@Produces("application/json")
-	public String getAllLogopedisten() {
-		LogopedistService service = ServiceProvider.getLogopedistService();
+	public String getAllChildren() {
+		ChildService service = ServiceProvider.getChildService();
 
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		
 		System.out.println(service);
-		for (Logopedist l : service.getAll()) {
+		for (Child l : service.getAll()) {
 			JsonObjectBuilder job = Json.createObjectBuilder();	
 			job.add("id", l.getId());
-			job.add("praktijk_id", l.getPraktijk_id());
-			job.add("email", l.getEmail());
+			job.add("logopedistid", l.getLogopedistid());
+            job.add("username", l.getUsername());
 			job.add("password", l.getPassword());
-			job.add("username", l.getUsername());
-			job.add("phonenumber", l.getPhonenumber());
+            job.add("email", l.getEmail());
+            job.add("phonenumber", l.getPhonenumber());
+            job.add("child_notifications", l.getChild_notifications());
 			jab.add(job);
 		}
 
