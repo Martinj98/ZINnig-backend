@@ -8,9 +8,12 @@ public class Child {
     private String email;
     private int phonenumber;
     private int child_notifications;
+    private String child_photo;
+    private int munten;
+    private String huiswerk;
 
     public Child(int id, int logopedistid, String username, String password, String email, int phonenumber,
-            int child_notifications) {
+            int child_notifications, String child_photo, int munten, String huiswerk) {
         this.setId(id);
         this.setLogopedistid(logopedistid);
         this.setUsername(username);
@@ -18,6 +21,39 @@ public class Child {
         this.setEmail(email);
         this.setPhonenumber(phonenumber);
         this.setChild_notifications(child_notifications);
+        this.setChild_photo(child_photo);
+        this.setMunten(munten);
+        this.setHuiswerk(huiswerk);
+    }
+
+    public String getHuiswerk() {
+        return huiswerk;
+    }
+
+    public void setHuiswerk(String huiswerk) {
+        this.huiswerk = huiswerk;
+    }
+
+    public int getMunten() {
+        return munten;
+    }
+
+    public void setMunten(int munten) {
+        this.munten = munten;
+    }
+
+    /**
+     * @return the child_photo
+     */
+    public String getChild_photo() {
+        return child_photo;
+    }
+
+    /**
+     * @param child_photo the child_photo to set
+     */
+    public void setChild_photo(String child_photo) {
+        this.child_photo = child_photo;
     }
 
     /**

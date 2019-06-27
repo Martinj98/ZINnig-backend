@@ -5,6 +5,7 @@ public class ServiceProvider {
 	private static LogopedistService logopedistService = new LogopedistService();
 	private static ChildService childService = new ChildService();
 	private static ParentService parentService = new ParentService();
+	private static WoordService woordService = new WoordService();
 
 	public static CountryService getCountryService() {
 		return countryService;
@@ -14,12 +15,16 @@ public class ServiceProvider {
 		return logopedistService;
 	}
 
-	public static ChildService getChildService(){
+	public static ChildService getChildService() {
 		return childService;
 	}
 
-	public static ParentService getParentService(){
+	public static ParentService getParentService() {
 		return parentService;
+	}
+
+	public static WoordService getWoordService() {
+		return woordService;
 	}
 	
 }

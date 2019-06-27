@@ -21,6 +21,9 @@ public class LogopedistService {
 		return logopedistdao.findId(username);
 	}
 	
+	public List<Logopedist> getLogopedist(int id) {
+		return logopedistdao.findLogopedist(id);
+	}
 	
 
 }

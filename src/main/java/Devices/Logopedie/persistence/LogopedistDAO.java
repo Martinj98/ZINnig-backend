@@ -62,6 +62,10 @@ public class LogopedistDAO extends BaseDAO {
 		}
 	}
 
+	public List<Logopedist> findLogopedist(int id) {
+		return selectLogopedist("SELECT * FROM logopedist WHERE id = " + id);
+	}
+
 	public String login(String username, String password) {
 		try (Connection con = super.getConnection()) {
 			Statement stmt = con.createStatement();
